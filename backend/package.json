@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "he Smart Crop Intelligence System (SCIS) is an innovative upgrade to the existing AgriBridge platform, designed to empower farmers with real-time data and insights. This document outlines the core concepts, functionalities, and anticipated impacts of the SCIS, which integrates advanced artificial intelligence to enhance agricultural productivity and profitability. By leveraging live weather data, crop price predictions, disease detection, and an AI chatbot, SCIS aims to revolutionize the farming experience and support farmers in making informed decisions.",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "@google/generative-ai": "^0.24.1",
+    "@turf/turf": "^7.3.4",
+    "axios": "^1.13.6",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.9.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "groq-sdk": "^1.1.1",
+    "joi": "^18.0.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.2.2",
+    "multer": "^2.1.1",
+    "razorpay": "^2.9.6",
+    "socket.io": "^4.8.3",
+    "winston": "^3.19.0"
+  }
+}

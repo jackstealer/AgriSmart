@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # ML Server
+  ml-server:
+    build:
+      context: ./ml-server
+      dockerfile: Dockerfile
+    container_name: agrismart-ml-server
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=production
+      - HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
+    volumes:
+      - ./ml-server/models:/app/models
+      - ./ml-server/price-data:/app/price-data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: agrismart-backend
+    ports:
+      - "1212:1212"
+    environment:
+      - NODE_ENV=production
+      - PORT=1212
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - CLOUD_NAME=${CLOUD_NAME}
+      - CLOUD_API_KEY=${CLOUD_API_KEY}
+      - CLOUD_API_SECRET=${CLOUD_API_SECRET}
+      - RAZORPAY_KEY_ID=${RAZORPAY_KEY_ID}
+      - RAZORPAY_KEY_SECRET=${RAZORPAY_KEY_SECRET}
+      - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - ML_SERVER_URL=http://ml-server:5001
+    depends_on:
+      ml-server:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1212/api/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
+
+networks:
+  default:
+    name: agrismart-network

@@ -1,0 +1,12 @@
+import express from 'express';
+import { getLatestPrices, predictPrice } from '../controllers/priceController.js';
+
+const router = express.Router();
+
+// GET  /api/prices         → latest ML predictions for 6 default crops
+router.get('/', getLatestPrices);
+
+// POST /api/prices/predict → custom crop/state prediction
+router.post('/predict', predictPrice);
+
+export default router;
