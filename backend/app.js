@@ -48,7 +48,7 @@ app.use(
   cors({
     origin: (origin, callback) => {
       // allow non-browser tools (Postman) in dev, but block unknown origins in prod
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")) {
         callback(null, true);
       } else {
         callback(new Error(`CORS: origin '${origin}' not allowed`));
