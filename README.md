@@ -3,7 +3,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=16A34A&height=250&section=header&text=AgriSmart&fontSize=70&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=AI-Powered%20Farm%20Management%20Platform&descAlignY=55&descSize=20" alt="AgriSmart Header" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=26&pause=1000&color=16A34A&center=true&vCenter=true&width=700&lines=🌾+Bridging+the+Gap+in+Agriculture;🤖+ML-Powered+Disease+Detection;📈+Real-Time+Price+Prediction;🌦️+Smart+Weather+Intelligence;💬+Conversational+Farming+Chatbot" alt="Typing Text" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=26&pause=1000&color=16A34A&center=true&vCenter=true&width=700&lines=AI-Powered+Farm+Management;ML+Disease+Detection;Real-Time+Price+Prediction;Smart+Weather+Intelligence;Conversational+AI+Chatbot" alt="Typing Text" />
 
 <br/>
 
