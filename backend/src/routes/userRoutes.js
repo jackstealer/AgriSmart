@@ -2,7 +2,7 @@ import express from "express";
 // import { getMe, updateMe, deleteMe, uploadProfileImage } from "../controllers/userController.js";
 import { protect } from "../middlewares/authMiddleware.js";
 import upload from "../middlewares/upload.js";
-import { deleteMe, getMe, getLoginHistory, updateMe, uploadProfileImage } from "../controllers/UserController.js";
+import { deleteMe, getMe, getLoginHistory, updateMe, uploadProfileImage } from "../controllers/userController.js";
 
 const router = express.Router();
 
