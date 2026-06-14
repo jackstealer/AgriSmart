@@ -9,6 +9,8 @@ services:
     rootDir: ml-server
     plan: free
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
       - key: FLASK_ENV
         value: production
       - key: HUGGINGFACE_TOKEN
