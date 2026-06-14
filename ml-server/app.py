@@ -28,6 +28,10 @@ load_dotenv()  # ml-server/.env
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'), override=False)  # root .env fallback
 
 app = Flask(__name__)
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "healthy"}), 200
 CORS(app)
 
 logging.basicConfig(level=logging.INFO)
