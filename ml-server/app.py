@@ -591,14 +591,14 @@ def predict_price():
         supply_factor = SEASONAL_SUPPLY.get((crop, month), 1.0)
         price_spread  = 200.0  # average default spread
 
-        # FEATURE_COLS from train_kaggle_model.py:
-        # ['year','month','month_sin','month_cos','crop_encoded','state_encoded','season_encoded',
-        #  'rainfall_mm','temperature_c','inflation_rate','weather_risk','supply_factor','price_spread']
+        supply_demand_ratio = 1.0 / demand_index
+        
+        # FEATURE_COLS from train_model_fast.py:
         features = np.array([[
             year, month, month_sin, month_cos,
             crop_enc, state_enc, season_enc,
-            rainfall, temperature, inflation_rate,
-            weather_risk, supply_factor, price_spread
+            rainfall, temperature, demand_index,
+            inflation_rate, supply_demand_ratio, weather_risk
         ]])
         
         # Make prediction
