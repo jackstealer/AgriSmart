@@ -55,9 +55,10 @@ export const createCrop = async (req, res) => {
       data: crop,
     });
   } catch (err) {
+    console.error("[createCrop error]", err);
     res.status(500).json({
       success: false,
-      message: err.message,
+      message: "Internal server error",
     });
   }
 };
@@ -94,9 +95,10 @@ export const getCrops = async (req, res) => {
       data: crops,
     });
   } catch (err) {
+    console.error("[getCrops error]", err);
     res.status(500).json({
       success: false,
-      message: "Error fetching crops",
+      message: "Internal server error",
     });
   }
 };
@@ -118,9 +120,10 @@ export const getCropById = async (req, res) => {
       data: crop,
     });
   } catch (err) {
+    console.error("[getCropById error]", err);
     res.status(500).json({
       success: false,
-      message: err.message,
+      message: "Internal server error",
     });
   }
 };
@@ -151,9 +154,10 @@ export const updateCrop = async (req, res) => {
       data: crop,
     });
   } catch (err) {
+    console.error("[updateCrop error]", err);
     res.status(500).json({
       success: false,
-      message: err.message,
+      message: "Internal server error",
     });
   }
 };
@@ -184,9 +188,10 @@ export const deleteCrop = async (req, res) => {
       message: "Crop deleted",
     });
   } catch (err) {
+    console.error("[deleteCrop error]", err);
     res.status(500).json({
       success: false,
-      message: err.message,
+      message: "Internal server error",
     });
   }
 };

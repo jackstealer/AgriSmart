@@ -1,3 +1,7 @@
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
@@ -9,20 +13,20 @@ import os
 import warnings
 warnings.filterwarnings('ignore')
 
-print("🌾 Crop Price Prediction Model Trainer")
+print("[*] Crop Price Prediction Model Trainer")
 print("=" * 50)
 
 # Create directories
 os.makedirs('price-data', exist_ok=True)
-os.makedirs('ml-server/models', exist_ok=True)
+os.makedirs('models', exist_ok=True)  # relative to ml-server/
 
 # Generate synthetic dataset based on real AGMARK patterns
-print("\n📊 Generating synthetic AGMARK dataset...")
+print("\n[*] Generating synthetic AGMARK dataset...")
 
 crops = ['Wheat', 'Rice', 'Maize', 'Potato', 'Tomato', 'Onion', 
          'Soybean', 'Cotton', 'Sugarcane', 'Chilli', 'Gram', 'Mustard']
 
-states = ['Punjab', 'Haryana', 'UP', 'Maharashtra', 'Karnataka', 
+states = ['Punjab', 'Haryana', 'Uttar Pradesh', 'Maharashtra', 'Karnataka', 
          'Andhra Pradesh', 'Madhya Pradesh', 'Rajasthan', 'Gujarat', 
          'Bihar', 'West Bengal', 'Tamil Nadu']
 
@@ -101,10 +105,10 @@ for year in range(2019, 2025):
 
 df = pd.DataFrame(rows)
 df.to_csv('price-data/agmark_prices.csv', index=False)
-print(f"✅ Generated {len(df):,} records")
+print(f"[*] Generated {len(df):,} records")
 
 # Preprocessing
-print("\n🔧 Preprocessing data...")
+print("\n[*] Preprocessing data...")
 df['month_sin'] = np.sin(2 * np.pi * df['month'] / 12)
 df['month_cos'] = np.cos(2 * np.pi * df['month'] / 12)
 df['supply_demand_ratio'] = 1 / df['demand_index']
@@ -138,10 +142,10 @@ print(f"   Training samples: {len(X_train):,}")
 print(f"   Test samples: {len(X_test):,}")
 
 # Train models
-print("\n🤖 Training ML models...")
+print("\n[*] Training ML models...")
 
 # XGBoost
-print("   Training XGBoost...")
+print("   [1/3] Training XGBoost...")
 xgb_model = xgb.XGBRegressor(
     n_estimators=200, max_depth=8, learning_rate=0.1,
     subsample=0.8, colsample_bytree=0.8, random_state=42
@@ -149,7 +153,7 @@ xgb_model = xgb.XGBRegressor(
 xgb_model.fit(X_train, y_train)
 
 # Random Forest
-print("   Training Random Forest...")
+print("   [2/3] Training Random Forest...")
 rf_model = RandomForestRegressor(
     n_estimators=150, max_depth=15, min_samples_split=5,
     random_state=42, n_jobs=-1
@@ -157,14 +161,14 @@ rf_model = RandomForestRegressor(
 rf_model.fit(X_train, y_train)
 
 # Gradient Boosting
-print("   Training Gradient Boosting...")
+print("   [3/3] Training Gradient Boosting...")
 gb_model = GradientBoostingRegressor(
     n_estimators=150, max_depth=5, learning_rate=0.1, random_state=42
 )
 gb_model.fit(X_train, y_train)
 
 # Evaluate
-print("\n📈 Model Performance:")
+print("\n[*] Model Performance:")
 print("-" * 60)
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
@@ -177,11 +181,11 @@ for name, model in models.items():
     print(f"   {name:18} | R²: {r2:.4f} | RMSE: {rmse:8.2f} | MAE: {mae:8.2f}")
 
 # Save models
-print("\n💾 Saving models...")
-joblib.dump(xgb_model, 'ml-server/models/price_model.pkl')
-joblib.dump(label_encoders, 'ml-server/models/encoders.pkl')
-joblib.dump(feature_cols, 'ml-server/models/features.pkl')
-joblib.dump(models, 'ml-server/models/ensemble_models.pkl')
+print("\n[*] Saving models to models/ ...")
+joblib.dump(xgb_model, 'models/price_model.pkl')
+joblib.dump(label_encoders, 'models/encoders.pkl')
+joblib.dump(feature_cols, 'models/features.pkl')
+joblib.dump(models, 'models/ensemble_models.pkl')
 
 print("   ✓ price_model.pkl")
 print("   ✓ encoders.pkl")
@@ -189,5 +193,5 @@ print("   ✓ features.pkl")
 print("   ✓ ensemble_models.pkl")
 
 print("\n" + "=" * 50)
-print("✅ Training complete! Start the ML server with: python ml-server/app.py")
+print("[OK] Training complete! Start the ML server with: python app.py")
 print("=" * 50)

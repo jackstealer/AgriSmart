@@ -62,7 +62,8 @@ export const getCurrentWeather = async (req, res) => {
       data: weatherDoc,
     });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -74,6 +75,7 @@ export const getLatestWeather = async (req, res) => {
     }
     res.json({ success: true, data: latest });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };

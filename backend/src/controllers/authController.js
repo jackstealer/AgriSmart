@@ -18,6 +18,25 @@ export const signup = async (req, res) => {
       });
     }
 
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ success: false, message: "Invalid email format" });
+    }
+
+    // Password strength: min 8 chars
+    if (password.length < 8) {
+      return res.status(400).json({
+        success: false,
+        message: "Password must be at least 8 characters",
+      });
+    }
+
+    // Name length guard
+    if (name.trim().length < 2 || name.trim().length > 60) {
+      return res.status(400).json({ success: false, message: "Name must be 2–60 characters" });
+    }
+
     if (!["farmer", "buyer"].includes(role)) {
       return res.status(400).json({
         success: false,
@@ -72,10 +91,10 @@ export const signup = async (req, res) => {
       token: generateToken(user._id),
     });
   } catch (error) {
+    console.error("[signup error]", error.message);
     return res.status(500).json({
       success: false,
-      message: "Server error",
-      error: error.message,
+      message: "Internal server error",
     });
   }
 };
@@ -85,13 +104,10 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
 
-    if (!user) {
-      return res.status(401).json({ success: false, message: "User not found" });
-    }
-
-    const isMatch = await user.comparePassword(password);
-    if (!isMatch) {
-      return res.status(401).json({ success: false, message: "Invalid password. Re-Try" });
+    // Use same generic message for both "not found" and "wrong password"
+    // to prevent user enumeration attacks
+    if (!user || !(await user.comparePassword(password))) {
+      return res.status(401).json({ success: false, message: "Invalid email or password" });
     }
 
     return res.status(200).json({
@@ -106,6 +122,7 @@ export const login = async (req, res) => {
       token: generateToken(user._id),
     });
   } catch (error) {
-    return res.status(500).json({ success: false, message: "Server error", error: error.message });
+    console.error("[login error]", error.message);
+    return res.status(500).json({ success: false, message: "Internal server error" });
   }
 };

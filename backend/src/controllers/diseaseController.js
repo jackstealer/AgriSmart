@@ -72,7 +72,8 @@ export const detectCropDisease = async (req, res) => {
     });
   } catch (err) {
     console.error("Disease controller error:", err.message);
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -84,6 +85,7 @@ export const getMyDiseaseDetections = async (req, res) => {
 
     res.json({ success: true, count: records.length, data: records });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };

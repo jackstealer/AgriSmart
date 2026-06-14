@@ -24,7 +24,6 @@ import {
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
 import { toast } from 'sonner';
-import { OPENWEATHER_API_KEY } from '../services/envService.js';
 import { weatherService } from '../services/api';
 
 
@@ -39,10 +38,6 @@ export const WeatherPage = () => {
   const handleGetCoordinates = async () => {
     if (!city) {
       toast.error('Enter city name');
-      return;
-    }
-    if (!OPENWEATHER_API_KEY) {
-      toast.error('Missing OpenWeather API key (set VITE_OPENWEATHER_API_KEY in .env)');
       return;
     }
 

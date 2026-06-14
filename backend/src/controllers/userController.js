@@ -61,7 +61,8 @@ export const updateMe = async (req, res) => {
 
     res.json({ success: true, data: user });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -87,7 +88,8 @@ export const deleteMe = async (req, res) => {
 
     res.json({ success: true, message: "Account deleted successfully" });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -118,7 +120,7 @@ export const uploadProfileImage = async (req, res) => {
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: err.message,
+      message: "Internal server error",
     });
   }
 };

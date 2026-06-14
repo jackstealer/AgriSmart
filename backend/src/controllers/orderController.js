@@ -87,7 +87,8 @@ export const createOrder = async (req, res) => {
 
     res.status(201).json({ success: true, data: { order, shipmentId: shipment.shipmentId } });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -108,7 +109,8 @@ export const getMyOrders = async (req, res) => {
       .sort({ createdAt: -1 });
     res.json({ success: true, count: orders.length, data: orders });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -127,7 +129,8 @@ export const getOrderById = async (req, res) => {
 
     res.json({ success: true, data: order });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -155,6 +158,7 @@ export const updateOrderStatus = async (req, res) => {
 
     res.json({ success: true, data: order });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };

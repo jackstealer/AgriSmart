@@ -27,6 +27,10 @@ export const createPaymentOrder = async (req, res) => {
       return res.status(404).json({ message: "Order not found" });
     }
 
+    if (order.buyerId.toString() !== req.user.id) {
+      return res.status(403).json({ message: "Unauthorized access to order" });
+    }
+
     const razorpayOrder = await getRazorpay().orders.create({
       amount: order.totalAmount * 100,
       currency: "INR",
@@ -42,7 +46,8 @@ export const createPaymentOrder = async (req, res) => {
 
   } catch (err) {
     console.error("Create Order Error:", err);
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -61,6 +66,12 @@ export const verifyPayment = async (req, res) => {
     }
 
     // Mark order as paid (use the schema field `status`)
+    const order = await Order.findById(orderId);
+    if (!order) return res.status(404).json({ message: "Order not found" });
+    if (order.buyerId.toString() !== req.user.id) {
+      return res.status(403).json({ message: "Unauthorized access to order" });
+    }
+
     await Order.findByIdAndUpdate(orderId, {
       status: 'paid',
       paymentId: razorpay_payment_id,
@@ -70,7 +81,8 @@ export const verifyPayment = async (req, res) => {
 
     res.json({ message: 'Payment verified successfully' });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -84,6 +96,10 @@ export const refundPayment = async (req, res) => {
       return res.status(400).json({ message: 'No paid payment found for this order' });
     }
 
+    if (order.buyerId.toString() !== req.user.id) {
+      return res.status(403).json({ message: "Unauthorized access to order" });
+    }
+
     const refund = await getRazorpay().payments.refund(order.paymentId, {
       amount: order.totalAmount * 100, // full refund; partial: pass custom amount
     });
@@ -95,7 +111,8 @@ export const refundPayment = async (req, res) => {
 
     res.json({ message: 'Refund initiated', refundId: refund.id });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -103,6 +120,10 @@ export const refundPayment = async (req, res) => {
 export const payoutToFarmer = async (req, res) => {
   try {
     const { farmerId, amount, accountNumber, ifscCode, farmerName } = req.body;
+
+    if (farmerId !== req.user.id) {
+      return res.status(403).json({ message: "Unauthorized: farmerId mismatch" });
+    }
 
     const razorpayInstance = getRazorpay();
 
@@ -137,6 +158,7 @@ export const payoutToFarmer = async (req, res) => {
 
     res.json({ message: 'Payout initiated', payoutId: payout.id });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 };

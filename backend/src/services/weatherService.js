@@ -1,3 +1,4 @@
+import '../config/env.js';
 import axios from "axios";
 import Groq from "groq-sdk";
 
