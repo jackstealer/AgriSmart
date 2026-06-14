@@ -1,83 +1,163 @@
+<!-- Header Section -->
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&pause=1000&color=16A34A&center=true&vCenter=true&width=600&lines=🌾+AgriSmart;AI-Powered+Farm+Management;Smart+Agriculture+Platform" alt="AgriSmart" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=16A34A&height=250&section=header&text=AgriSmart&fontSize=70&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=AI-Powered%20Farm%20Management%20Platform&descAlignY=55&descSize=20" alt="AgriSmart Header" />
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=26&pause=1000&color=16A34A&center=true&vCenter=true&width=700&lines=🌾+Bridging+the+Gap+in+Agriculture;🤖+ML-Powered+Disease+Detection;📈+Real-Time+Price+Prediction;🌦️+Smart+Weather+Intelligence;💬+Conversational+Farming+Chatbot" alt="Typing Text" />
 
 <br/>
 
-[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
-[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-
+<!-- Animated Divider -->
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%" height="3px" />
 <br/>
 
-[![GitHub stars](https://img.shields.io/github/stars/jackstealer/AgriSmart?style=social)](https://github.com/jackstealer/AgriSmart/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/jackstealer/AgriSmart?style=social)](https://github.com/jackstealer/AgriSmart/network)
-[![GitHub issues](https://img.shields.io/github/issues/jackstealer/AgriSmart?color=green)](https://github.com/jackstealer/AgriSmart/issues)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!-- Stats Badges -->
+<p align="center">
+  <a href="https://github.com/jackstealer/AgriSmart/stargazers"><img src="https://img.shields.io/github/stars/jackstealer/AgriSmart?style=for-the-badge&color=ffd700&logo=github&logoColor=white" alt="Stars"/></a>
+  <a href="https://github.com/jackstealer/AgriSmart/network"><img src="https://img.shields.io/github/forks/jackstealer/AgriSmart?style=for-the-badge&color=0052cc&logo=github&logoColor=white" alt="Forks"/></a>
+  <a href="https://github.com/jackstealer/AgriSmart/issues"><img src="https://img.shields.io/github/issues/jackstealer/AgriSmart?style=for-the-badge&color=success&logo=github&logoColor=white" alt="Issues"/></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License"/></a>
+</p>
 
-<br/>
-
-> **AgriSmart** is a comprehensive full-stack agricultural management platform that bridges the gap between farmers and buyers through cutting-edge AI technology — combining ML-powered disease detection, real-time market price prediction, live weather intelligence, and an AI chatbot assistant.
-
-[🚀 Quick Start](#-quick-start) • [✨ Features](#-features) • [🏗️ Architecture](#️-architecture) • [📡 API Docs](#-api-reference) • [🤝 Contributing](#-contributing)
+<!-- Quick Navigation -->
+<p align="center">
+  <a href="#-quick-start"><kbd>🚀 Quick Start</kbd></a>
+  <a href="#-features"><kbd>✨ Features</kbd></a>
+  <a href="#️-architecture"><kbd>🏗️ Architecture</kbd></a>
+  <a href="#-tech-stack"><kbd>💻 Tech Stack</kbd></a>
+  <a href="#-api-reference"><kbd>📡 API Docs</kbd></a>
+  <a href="#-contributing"><kbd>🤝 Contributing</kbd></a>
+</p>
 
 </div>
 
----
+<br/>
+
+## 📖 About The Project
+
+> **AgriSmart** is a next-generation, comprehensive full-stack agricultural management platform designed to empower farmers and streamline the agricultural supply chain. By leveraging cutting-edge Artificial Intelligence and Machine Learning, AgriSmart bridges the gap between farmers and buyers, providing actionable insights and robust tools for farm management.
+
+### 🌟 Why AgriSmart?
+In the modern era, traditional farming faces numerous challenges including unpredictable weather, crop diseases, and volatile market prices. AgriSmart tackles these issues head-on by integrating:
+- **ML-Powered Disease Detection:** Instantly diagnose crop issues and prevent losses.
+- **Market Price Prediction:** Make informed selling decisions with data-backed forecasts.
+- **Weather Intelligence:** Plan farming activities with hyper-local weather tracking.
+- **Conversational AI:** Get answers to your farming queries instantly in your native language.
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%" height="3px" />
 
 ## ✨ Features
 
 <table>
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
 ### 🦠 AI Disease Detection
-Upload a photo of your crop and get instant disease diagnosis powered by **PlantVillage ML model** (38 disease classes) with Google Gemini Vision as a fallback. Receive treatment recommendations and prevention tips.
+<div align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/3000/3000787.png" width="80" />
+</div>
+<br/>
+Upload a photo of your crop and get instant disease diagnosis powered by **PlantVillage ML model** (38 disease classes) with Google Gemini Vision as a robust fallback. Receive detailed treatment recommendations and tailored prevention tips to secure your yield.
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
 ### 📈 ML Price Prediction
-Real-time crop price predictions using an ensemble of **XGBoost + Random Forest + Gradient Boosting** models trained on AGMARK data. Achieves **99% R² accuracy** with trend analysis and seasonal insights.
+<div align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/2933/2933116.png" width="80" />
+</div>
+<br/>
+Experience real-time crop price predictions driven by an advanced ensemble of **XGBoost + Random Forest + Gradient Boosting** models trained on vast AGMARK datasets. Achieves a staggering **99% R² accuracy**, offering you trend analysis and seasonal insights to maximize profits.
 
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
 ### 🌦️ Smart Weather Intelligence
-Live hyperlocal weather data via OpenWeather API with AI-generated farming advisories — irrigation recommendations, frost alerts, and harvest timing suggestions tailored to your crop.
+<div align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/1163/1163624.png" width="80" />
+</div>
+<br/>
+Stay ahead of the climate with live hyperlocal weather data sourced via the OpenWeather API. Coupled with AI-generated farming advisories, it offers irrigation recommendations, frost alerts, and harvest timing suggestions precisely tailored to your registered crops.
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
 ### 🤖 AI Farming Chatbot
-Conversational AI assistant powered by Groq (LLaMA 3.3) answering all your farming queries — crop selection, pest control, market timing, and agronomy best practices in multiple Indian languages.
+<div align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" width="80" />
+</div>
+<br/>
+Your personal conversational AI assistant powered by Groq (LLaMA 3.3). Ask anything from crop selection, pest control methods, market timing, to general agronomy best practices. Fully equipped to converse in multiple Indian languages.
 
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
 ### 🛒 Marketplace & Orders
-Farmers can list produce, buyers can browse and place orders with full order lifecycle management — from creation to shipment tracking with real-time status updates.
+<div align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/3081/3081986.png" width="80" />
+</div>
+<br/>
+A seamless digital marketplace where farmers can effortlessly list their produce and buyers can browse, negotiate, and place orders. Features full order lifecycle management from creation right through to shipment tracking with real-time status updates.
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
-### 💳 Razorpay Payments
-Secure payment processing with Razorpay — supports order payments, refunds, and farmer payouts via Razorpay X. Full payment verification with webhook support.
+### 💳 Secure Payments
+<div align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/1055/1055664.png" width="80" />
+</div>
+<br/>
+Integrated secure payment processing with Razorpay ensures peace of mind. Supports instant order payments, hassle-free refunds, and seamless farmer payouts via Razorpay X, all backed by full payment verification and robust webhook support.
 
 </td>
 </tr>
 </table>
 
----
+<br/>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%" height="3px" />
+
+## 💻 Tech Stack
+
+<div align="center">
+  
+  <br/>
+  <h3>Frontend</h3>
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,vite,tailwind,js,html,css&theme=dark" />
+  </a>
+  
+  <br/><br/>
+  <h3>Backend</h3>
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,postman&theme=dark" />
+  </a>
+
+  <br/><br/>
+  <h3>Machine Learning & AI</h3>
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,flask,tensorflow,scikitlearn&theme=dark" />
+  </a>
+  <br/>
+  <p><b>Powered by:</b> Google Gemini Vision API & Groq (LLaMA 3.3)</p>
+
+  <br/>
+  <h3>DevOps & Integrations</h3>
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=docker,git,github,vercel&theme=dark" />
+  </a>
+  
+</div>
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%" height="3px" />
 
 ## 🏗️ Architecture
 
@@ -134,7 +214,7 @@ graph TB
     ML --> GEMINI
 ```
 
----
+<br/>
 
 ## 🗂️ Project Structure
 
@@ -175,17 +255,21 @@ AgriSmart/
 └── render.yaml                     # Render.com deployment config
 ```
 
----
+<br/>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%" height="3px" />
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 📋 Prerequisites
 
-| Tool | Version |
-|------|---------|
-| Node.js | ≥ 18.x |
-| Python | ≥ 3.9 |
-| MongoDB | Atlas or Local |
+Ensure you have the following installed before proceeding:
+
+| Tool | Version | Description |
+|------|---------|-------------|
+| <img src="https://skillicons.dev/icons?i=nodejs" width="20"/> Node.js | `≥ 18.x` | Backend runtime & Frontend build tool |
+| <img src="https://skillicons.dev/icons?i=python" width="20"/> Python | `≥ 3.9` | Machine Learning Server |
+| <img src="https://skillicons.dev/icons?i=mongodb" width="20"/> MongoDB | `Atlas / Local` | Database to store application data |
 
 ### 1️⃣ Clone the Repository
 
@@ -207,38 +291,38 @@ cp agrismart-frontend/.env.example agrismart-frontend/.env
 ```
 
 <details>
-<summary>📋 <strong>Required API Keys (click to expand)</strong></summary>
+<summary>🔑 <strong>Required API Keys (Click to expand)</strong></summary>
 
 <br/>
 
 | Variable | Where to Get | Required |
 |----------|-------------|----------|
 | `MONGO_URI` | [MongoDB Atlas](https://cloud.mongodb.com) → Connect | ✅ Yes |
-| `JWT_SECRET_KEY` | Any random string | ✅ Yes |
+| `JWT_SECRET_KEY` | Any random secure string | ✅ Yes |
 | `GROQ_API_KEY` | [console.groq.com](https://console.groq.com) — Free | ✅ Yes (chatbot) |
-| `GEMINI_API_KEY` | [aistudio.google.com](https://aistudio.google.com) — Free | ⚠️ Optional (disease AI) |
+| `GEMINI_API_KEY` | [aistudio.google.com](https://aistudio.google.com) — Free | ⚠️ Optional (disease AI fallback) |
 | `OPENWEATHER_API_KEY` | [openweathermap.org](https://home.openweathermap.org/api_keys) — Free | ⚠️ Optional |
 | `CLOUD_NAME/KEY/SECRET` | [cloudinary.com](https://cloudinary.com) — Free | ⚠️ Optional (profile images) |
 | `RAZORPAY_KEY_ID/SECRET` | [razorpay.com](https://razorpay.com) — Test keys | ⚠️ Optional (payments) |
 
-> **Note:** The app runs without optional APIs using smart fallbacks — simulated weather, auto-generated avatars, rule-based chatbot responses.
+> **Note:** The app is designed with graceful degradation and runs without optional APIs using smart fallbacks (simulated weather, auto-generated avatars, rule-based chatbot responses).
 
 </details>
 
 ### 3️⃣ Install Dependencies
 
 ```bash
-# Backend
+# Install Backend Dependencies
 cd backend && npm install
 
-# Frontend
+# Install Frontend Dependencies
 cd ../agrismart-frontend && npm install
 
-# ML Server
+# Install ML Server Dependencies
 cd ../ml-server && pip install -r requirements.txt
 ```
 
-### 4️⃣ Train the ML Price Model
+### 4️⃣ Train the ML Price Model (Optional but Recommended)
 
 ```bash
 cd ml-server
@@ -248,7 +332,7 @@ python train_price_model.py
 
 ### 5️⃣ Start All Services
 
-Open **3 terminals** and run:
+Open **3 separate terminals** and run:
 
 ```bash
 # Terminal 1 — ML Server (Flask)
@@ -267,14 +351,16 @@ npm run dev
 # 🖥️ Running on http://localhost:5173
 ```
 
-**Open [http://localhost:5173](http://localhost:5173) in your browser** 🎉
+**Open [http://localhost:5173](http://localhost:5173) in your browser and experience AgriSmart!** 🎉
 
----
+<br/>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%" height="3px" />
 
 ## 📡 API Reference
 
 <details>
-<summary>🔐 <strong>Authentication</strong></summary>
+<summary>🔐 <strong>Authentication (/api/auth)</strong></summary>
 
 | Method | Endpoint | Description | Auth |
 |--------|----------|-------------|------|
@@ -284,7 +370,7 @@ npm run dev
 </details>
 
 <details>
-<summary>📈 <strong>Prices</strong></summary>
+<summary>📈 <strong>Prices (/api/prices)</strong></summary>
 
 | Method | Endpoint | Description | Auth |
 |--------|----------|-------------|------|
@@ -302,11 +388,10 @@ npm run dev
   "temperature_c": 35
 }
 ```
-
 </details>
 
 <details>
-<summary>🌦️ <strong>Weather</strong></summary>
+<summary>🌦️ <strong>Weather (/api/weather)</strong></summary>
 
 | Method | Endpoint | Description | Auth |
 |--------|----------|-------------|------|
@@ -315,18 +400,17 @@ npm run dev
 </details>
 
 <details>
-<summary>🦠 <strong>Disease Detection</strong></summary>
+<summary>🦠 <strong>Disease Detection (/api/disease)</strong></summary>
 
 | Method | Endpoint | Description | Auth |
 |--------|----------|-------------|------|
 | `POST` | `/api/disease/detect` | Upload crop image for diagnosis | Yes |
 
 **Request:** `multipart/form-data` with field `image`
-
 </details>
 
 <details>
-<summary>🤖 <strong>Chatbot</strong></summary>
+<summary>🤖 <strong>Chatbot (/api/chatbot)</strong></summary>
 
 | Method | Endpoint | Description | Auth |
 |--------|----------|-------------|------|
@@ -347,87 +431,44 @@ npm run dev
 
 </details>
 
----
+<br/>
 
 ## 🌍 Multi-Language Support
 
-AgriSmart supports **6 Indian languages** on the signup/login screens:
+AgriSmart embraces diversity by supporting **6 Indian languages** natively on the platform to ensure maximum accessibility for farmers across regions:
 
 | Language | Code | Script |
-|----------|------|--------|
-| English | `en` | Latin |
-| हिंदी | `hi` | Devanagari |
-| ਪੰਜਾਬੀ | `pa` | Gurmukhi |
-| தமிழ் | `ta` | Tamil |
-| తెలుగు | `te` | Telugu |
-| मराठी | `mr` | Devanagari |
+|----------|:----:|--------|
+| **English** | `en` | Latin |
+| **हिंदी (Hindi)** | `hi` | Devanagari |
+| **ਪੰਜਾਬੀ (Punjabi)** | `pa` | Gurmukhi |
+| **தமிழ் (Tamil)** | `ta` | Tamil |
+| **తెలుగు (Telugu)** | `te` | Telugu |
+| **मराठी (Marathi)** | `mr` | Devanagari |
 
----
+<br/>
 
 ## 🐳 Docker Deployment
+
+For a robust, containerized setup, use Docker Compose:
 
 ```bash
 # Start all services with Docker Compose
 docker-compose up --build
 
-# Services:
-# Frontend → http://localhost:5173
-# Backend  → http://localhost:5000
-# ML Server → http://localhost:5001
+# 🌐 Services will be available at:
+# 🖥️ Frontend  → http://localhost:5173
+# ⚙️ Backend   → http://localhost:5000
+# 🧠 ML Server → http://localhost:5001
 ```
 
----
+<br/>
 
-## 🔧 Tech Stack
-
-<table>
-<tr>
-<th>Layer</th>
-<th>Technology</th>
-<th>Purpose</th>
-</tr>
-<tr>
-<td><strong>Frontend</strong></td>
-<td>React 18, Vite, Tailwind CSS, shadcn/ui, Recharts, Framer Motion</td>
-<td>UI, routing, data visualization, animations</td>
-</tr>
-<tr>
-<td><strong>Backend</strong></td>
-<td>Node.js, Express.js, Mongoose, Multer, dotenvx</td>
-<td>REST API, auth, file uploads</td>
-</tr>
-<tr>
-<td><strong>Database</strong></td>
-<td>MongoDB Atlas</td>
-<td>User data, crops, orders, prices, shipments</td>
-</tr>
-<tr>
-<td><strong>ML Server</strong></td>
-<td>Python, Flask, TensorFlow 2.x, scikit-learn, XGBoost, pandas</td>
-<td>Price prediction, disease detection</td>
-</tr>
-<tr>
-<td><strong>AI APIs</strong></td>
-<td>Groq (LLaMA 3.3), Google Gemini Vision</td>
-<td>Chatbot, disease AI analysis</td>
-</tr>
-<tr>
-<td><strong>External</strong></td>
-<td>Cloudinary, Razorpay, OpenWeather</td>
-<td>Media storage, payments, weather</td>
-</tr>
-<tr>
-<td><strong>Auth</strong></td>
-<td>JWT + bcrypt</td>
-<td>Stateless authentication</td>
-</tr>
-</table>
-
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%" height="3px" />
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how to get started:
+We welcome contributions from the community! Whether it's a bug fix, new feature, or documentation update, your help is appreciated.
 
 ```bash
 # 1. Fork the repo and create your branch
@@ -440,18 +481,18 @@ git commit -m "feat: add amazing feature"
 git push origin feature/amazing-feature
 ```
 
-**Please follow:**
-- [Conventional Commits](https://www.conventionalcommits.org/) for commit messages
-- ESLint rules (run `npm run lint` before committing)
-- Add tests for new backend routes
+**Contribution Guidelines:**
+- Please follow [Conventional Commits](https://www.conventionalcommits.org/) for commit messages.
+- Ensure ESLint rules pass by running `npm run lint` before committing.
+- Add corresponding unit tests for any new backend routes.
 
----
+<br/>
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Distributed under the **MIT License**. See `LICENSE` for more information.
 
----
+<br/>
 
 ## 👨‍💻 Author
 
@@ -459,7 +500,9 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 **Atul Raj**
 
-[![GitHub](https://img.shields.io/badge/GitHub-jackstealer-181717?style=for-the-badge&logo=github)](https://github.com/jackstealer)
+<a href="https://github.com/jackstealer">
+  <img src="https://img.shields.io/badge/GitHub-jackstealer-181717?style=for-the-badge&logo=github" alt="GitHub Profile" />
+</a>
 
 <br/>
 
@@ -467,6 +510,8 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 <br/>
 
-⭐ **Star this repo if you find it useful!** ⭐
+<img src="https://capsule-render.vercel.app/api?type=waving&color=16A34A&height=100&section=footer" width="100%"/>
+
+⭐ **Don't forget to star this repo if you found it useful!** ⭐
 
 </div>
