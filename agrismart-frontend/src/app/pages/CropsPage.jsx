@@ -403,11 +403,11 @@ export const CropsPage = () => {
             setOrderLoading(false);
         }
     };
-    return (<div className="space-y-6">
+    return (<div className="space-y-6 text-white">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold">{t('crops.title')}</h1>
-          <p className="text-muted-foreground">{t('crops.subtitle')}</p>
+          <h1 className="text-3xl font-black text-white">{t('crops.title')}</h1>
+          <p className="text-white/50 mt-1">{t('crops.subtitle')}</p>
         </div>
         {user?.role === 'farmer' && (<Dialog open={isAddDialogOpen} onOpenChange={(open) => {
                 setIsAddDialogOpen(open);
@@ -415,12 +415,12 @@ export const CropsPage = () => {
                     resetForm();
             }}>
             <DialogTrigger asChild>
-              <Button className="gap-2">
+              <Button className="gap-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white border-0 rounded-xl shadow-lg shadow-green-900/40">
                 <Plus className="w-4 h-4"/>
                 {t('crops.addCrop')}
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-gray-900 border-white/10 text-white">
               <DialogHeader>
                 <DialogTitle>{editingCrop ? t('crops.editCrop') : t('crops.addNewCrop')}</DialogTitle>
                 <DialogDescription>
@@ -568,139 +568,135 @@ export const CropsPage = () => {
           </Dialog>)}
       </div>
 
-      <Card>
-        <CardContent className="pt-6">
+      <div className="glass-dark rounded-2xl p-4 border border-white/8">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground"/>
-              <Input placeholder={t('crops.search')} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10"/>
+              <Search className="absolute left-3 top-3 w-4 h-4 text-white/40"/>
+              <Input placeholder={t('crops.search')} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/30"/>
             </div>
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-full sm:w-48">
-                <Filter className="w-4 h-4 mr-2"/>
+              <SelectTrigger className="w-full sm:w-48 bg-white/5 border-white/10 text-white">
+                <Filter className="w-4 h-4 mr-2 text-white/40"/>
                 <SelectValue placeholder={t('crops.allStatus')}/>
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{t('crops.allStatus')}</SelectItem>
-                <SelectItem value="available">{t('crops.available')}</SelectItem>
-                <SelectItem value="sold">{t('crops.sold')}</SelectItem>
-                <SelectItem value="expired">{t('crops.expired')}</SelectItem>
+              <SelectContent className="bg-gray-900 border-white/10 text-white">
+                <SelectItem value="all" className="text-white hover:bg-white/10">{t('crops.allStatus')}</SelectItem>
+                <SelectItem value="available" className="text-white hover:bg-white/10">{t('crops.available')}</SelectItem>
+                <SelectItem value="sold" className="text-white hover:bg-white/10">{t('crops.sold')}</SelectItem>
+                <SelectItem value="expired" className="text-white hover:bg-white/10">{t('crops.expired')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
-        </CardContent>
-      </Card>
+      </div>
 
-      {filteredCrops.length === 0 ? (<Card>
-          <CardContent className="py-16 text-center">
-            <p className="text-muted-foreground">{t('crops.noCrops')}</p>
-          </CardContent>
-        </Card>) : (<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {filteredCrops.length === 0 ? (<div className="glass-dark rounded-2xl py-16 text-center border border-white/8">
+            <p className="text-white/40">{t('crops.noCrops')}</p>
+        </div>) : (<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCrops.map((crop, index) => (<motion.div key={crop.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
-              <Card className="overflow-hidden hover:shadow-lg transition-all">
-                <img src={crop.image || 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400'} alt={crop.name} className="w-full h-48 object-cover"/>
-                <CardHeader>
+              <div className="glass-dark rounded-2xl overflow-hidden border border-white/8 hover:border-green-500/30 transition-all duration-300 group">
+                <img src={crop.image || 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400'} alt={crop.name} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"/>
+                <div className="p-4 pb-2">
                   <div className="flex items-start justify-between">
                     <div>
-                      <CardTitle>{crop.name}</CardTitle>
-                      <CardDescription>{crop.variety}</CardDescription>
+                      <h3 className="text-lg font-bold text-white">{crop.name}</h3>
+                      <p className="text-sm text-white/40">{crop.variety}</p>
                     </div>
-                    <Badge variant={crop.status === 'available'
-                    ? 'default'
-                    : crop.status === 'sold'
-                        ? 'secondary'
-                        : 'outline'}>
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
+                      crop.status === 'available' ? 'bg-green-500/20 text-green-400'
+                      : crop.status === 'sold' ? 'bg-white/10 text-white/50'
+                      : 'bg-red-500/20 text-red-400'
+                    }`}>
                       {t(`crops.${crop.status}`)}
-                    </Badge>
+                    </span>
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
+                </div>
+                <div className="p-4 pt-2 space-y-3">
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div>
-                      <p className="text-muted-foreground">{t('crops.quantity')}</p>
-                      <p className="font-medium">{crop.quantity} {crop.unit}</p>
+                      <p className="text-white/40 text-xs">{t('crops.quantity')}</p>
+                      <p className="font-semibold text-white">{crop.quantity} {crop.unit}</p>
                     </div>
                     <div>
-                      <p className="text-muted-foreground">{t('crops.price')}</p>
-                      <p className="font-medium">INR {crop.pricePerUnit}/{crop.unit}</p>
+                      <p className="text-white/40 text-xs">{t('crops.price')}</p>
+                      <p className="font-semibold text-green-400">₹{crop.pricePerUnit}/{crop.unit}</p>
                     </div>
                     <div className="col-span-2">
-                      <p className="text-muted-foreground">{t('crops.location')}</p>
-                      <p className="font-medium">{crop.location}</p>
+                      <p className="text-white/40 text-xs">{t('crops.location')}</p>
+                      <p className="font-medium text-white text-sm">{crop.location}</p>
                     </div>
                     <div>
-                      <p className="text-muted-foreground">{t('crops.harvest')}</p>
-                      <p className="font-medium">
+                      <p className="text-white/40 text-xs">{t('crops.harvest')}</p>
+                      <p className="font-medium text-white text-sm">
                         {crop.harvestDate ? new Date(crop.harvestDate).toLocaleDateString() : 'N/A'}
                       </p>
                     </div>
                   </div>
 
-                  {user?.role === 'farmer' && (<div className="flex gap-2 pt-3 border-t">
-                      <Button variant="outline" size="sm" className="flex-1 gap-2" onClick={() => handleEdit(crop)}>
+                  {user?.role === 'farmer' && (<div className="flex gap-2 pt-3 border-t border-white/8">
+                      <Button variant="outline" size="sm" className="flex-1 gap-2 border-white/15 text-white hover:bg-white/10" onClick={() => handleEdit(crop)}>
                         <Edit className="w-4 h-4"/>
                         {t('common.edit')}
                       </Button>
-                      <Button variant="destructive" size="sm" className="flex-1 gap-2" onClick={() => handleDelete(crop.id)}>
+                      <Button variant="destructive" size="sm" className="flex-1 gap-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 border-red-500/20" onClick={() => handleDelete(crop.id)}>
                         <Trash2 className="w-4 h-4"/>
                         {t('common.delete')}
                       </Button>
                     </div>)}
 
-                  {user?.role === 'buyer' && (<Button className="w-full" onClick={() => {
+                  {user?.role === 'buyer' && (<Button className="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white border-0 rounded-xl" onClick={() => {
                 setSelectedCrop(crop);
                 setOrderQuantity(1);
                 setShippingAddress('');
             }}>
                       {t('crops.placeOrder')}
                     </Button>)}
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>))}
         </div>)}
-      {selectedCrop && (<div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 space-y-4">
+      {selectedCrop && (<div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-gray-900 border border-white/10 rounded-2xl shadow-2xl w-full max-w-md p-6 space-y-4 text-white">
             <div className="space-y-1">
-              <h3 className="text-xl font-semibold">{selectedCrop.name}</h3>
-              <p className="text-muted-foreground">INR {selectedCrop.pricePerUnit} per {selectedCrop.unit}</p>
+              <h3 className="text-xl font-bold text-white">{selectedCrop.name}</h3>
+              <p className="text-white/50">₹{selectedCrop.pricePerUnit} per {selectedCrop.unit}</p>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="orderQuantity">{t('crops.quantity')}</Label>
+              <Label htmlFor="orderQuantity" className="text-white/60 text-xs">{t('crops.quantity')}</Label>
               <Input id="orderQuantity" type="number" min={1} max={selectedCrop.quantity} value={orderQuantity} onChange={(e) => {
                 const value = Number(e.target.value);
                 const safeValue = Math.max(1, Math.min(Number(selectedCrop.quantity) || 1, Number.isNaN(value) ? 1 : value));
                 setOrderQuantity(safeValue);
-            }}/>
+            }} className="bg-white/5 border-white/10 text-white"/>
             </div>
-            <div className="space-y-3 border rounded-md p-3">
-              <p className="font-semibold">Transportation</p>
+            <div className="space-y-3 glass-green rounded-xl p-4 border border-green-500/20">
+              <p className="font-bold text-white">Transportation</p>
               <div className="space-y-2">
-                <label className="flex items-center gap-3 border rounded-md p-3 cursor-pointer">
+                <label className="flex items-center gap-3 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-green-500/30 transition-colors">
                   <input type="radio" name="transport" value="self" checked={transportMode === 'self'} onChange={() => setTransportMode('self')}/>
                   <div>
-                    <p className="font-medium">I will arrange my own transport</p>
-                    <p className="text-sm text-muted-foreground">No extra charge</p>
+                    <p className="font-medium text-white text-sm">I will arrange my own transport</p>
+                    <p className="text-xs text-white/40">No extra charge</p>
                   </div>
                 </label>
-                <label className="flex items-center gap-3 border rounded-md p-3 cursor-pointer">
+                <label className="flex items-center gap-3 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-green-500/30 transition-colors">
                   <input type="radio" name="transport" value="platform" checked={transportMode === 'platform'} onChange={() => setTransportMode('platform')}/>
                   <div>
-                    <p className="font-medium">AgriSmart Logistics</p>
-                    <p className="text-sm text-muted-foreground">Delivery charge: ₹{transportFee}</p>
+                    <p className="font-medium text-white text-sm">AgriSmart Logistics</p>
+                    <p className="text-xs text-white/40">Delivery charge: ₹{transportFee}</p>
                   </div>
                 </label>
               </div>
-              <div className="text-sm text-muted-foreground space-y-1">
-                <p>Crop total: ₹{orderQuantity * selectedCrop.pricePerUnit}</p>
-                {transportMode === 'platform' && <p>Transport fee: ₹{transportFee}</p>}
-                <p className="font-semibold text-black">Grand total: ₹{orderQuantity * selectedCrop.pricePerUnit + (transportMode === 'platform' ? transportFee : 0)}</p>
+              <div className="text-sm space-y-1 pt-2 border-t border-white/10">
+                <p className="text-white/50">Crop total: <span className="text-white">₹{orderQuantity * selectedCrop.pricePerUnit}</span></p>
+                {transportMode === 'platform' && <p className="text-white/50">Transport fee: <span className="text-white">₹{transportFee}</span></p>}
+                <p className="font-bold text-green-400 text-base">Grand total: ₹{orderQuantity * selectedCrop.pricePerUnit + (transportMode === 'platform' ? transportFee : 0)}</p>
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="shippingAddress">Delivery Address</Label>
+              <Label htmlFor="shippingAddress" className="text-white/60 text-xs">Delivery Address</Label>
               <textarea
                 id="shippingAddress"
-                className="w-full rounded-md border p-2 text-sm"
+                className="w-full rounded-xl border border-white/10 bg-white/5 text-white p-3 text-sm placeholder:text-white/30 outline-none focus:border-green-500/50"
                 rows={3}
                 value={shippingAddress}
                 onChange={(e) => setShippingAddress(e.target.value)}
@@ -708,10 +704,10 @@ export const CropsPage = () => {
               />
             </div>
             <div className="flex gap-2 justify-end">
-              <Button variant="outline" onClick={() => { setSelectedCrop(null); setShippingAddress(''); }} disabled={orderLoading}>
+              <Button variant="outline" onClick={() => { setSelectedCrop(null); setShippingAddress(''); }} disabled={orderLoading} className="border-white/15 text-white hover:bg-white/10">
                 {t('common.cancel')}
               </Button>
-              <Button onClick={handlePlaceOrder} disabled={orderLoading || !shippingAddress.trim()}>
+              <Button onClick={handlePlaceOrder} disabled={orderLoading || !shippingAddress.trim()} className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white border-0 rounded-xl">
                 {orderLoading ? t('common.processing') : t('orders.confirmPay')}
               </Button>
             </div>

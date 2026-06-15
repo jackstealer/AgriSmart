@@ -37,8 +37,8 @@ export const ProfilePage = () => {
                     api.get('/api/crops'),
                     api.get('/api/orders'),
                 ]);
-                const crops = cropsRes.data?.crops || cropsRes.data || [];
-                const orders = ordersRes.data?.orders || ordersRes.data || [];
+                const crops = cropsRes.data?.data || [];
+                const orders = ordersRes.data?.data || [];
                 setStats({
                     totalCrops: crops.length,
                     activeListings: crops.filter((c) => c.status === 'available' || c.status === 'Available').length,
@@ -48,7 +48,7 @@ export const ProfilePage = () => {
             }
             else {
                 const ordersRes = await api.get('/api/orders');
-                const orders = ordersRes.data?.orders || ordersRes.data || [];
+                const orders = ordersRes.data?.data || [];
                 setStats({
                     totalCrops: 0,
                     activeListings: 0,
